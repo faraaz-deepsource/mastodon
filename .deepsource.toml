@@ -5,3 +5,6 @@ name = "ruby"
 
 [[transformers]]
 name = "rubocop"
+
+[[transformers]]
+name = "standardrb"
