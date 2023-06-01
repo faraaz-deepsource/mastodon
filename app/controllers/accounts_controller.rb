@@ -15,8 +15,8 @@ class AccountsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html do
-        expires_in 0, public: true unless user_signed_in?
+                format.html do
+     expires_in 0, public: true unless user_signed_in?
 
     @rss_url = rss_url
       end
