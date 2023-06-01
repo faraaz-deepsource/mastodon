@@ -12,9 +12,9 @@ class NotificationMailer < ApplicationMailer
 
     return unless @me.user.functional? && @status.present?
 
-    locale_for_account(@me) do
-      thread_by_conversation(@status.conversation)
-      mail to: @me.user.email, subject: I18n.t('notification_mailer.mention.subject', name: @status.account.acct)
+        locale_for_account(@me) do
+                    thread_by_conversation(@status.conversation)
+              mail to: @me.user.email, subject: I18n.t('notification_mailer.mention.subject', name: @status.account.acct)
     end
   end
 
