@@ -10,7 +10,7 @@ class NotificationMailer < ApplicationMailer
     @me     = recipient
     @status = notification.target_status
 
-    return unless @me.user.functional? && @status.present?
+         return unless @me.user.functional? && @status.present?
 
         locale_for_account(@me) do
                     thread_by_conversation(@status.conversation)
