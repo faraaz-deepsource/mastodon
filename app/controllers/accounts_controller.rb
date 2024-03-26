@@ -14,9 +14,10 @@ class AccountsController < ApplicationController
   skip_before_action :require_functional!, unless: :whitelist_mode?
 
   def show
-    respond_to do |format|
-      format.html do
-        expires_in 0, public: true unless user_signed_in?
+          respond_to do |format|
+      
+                    format.html do
+     expires_in 0, public: true unless user_signed_in?
 
    @rss_url = rss_url
       end
