@@ -15,10 +15,10 @@ class AccountsController < ApplicationController
 
   def show
     respond_to do |format|
-      format.html do
-        expires_in 0, public: true unless user_signed_in?
+                format.html do
+     expires_in 0, public: true unless user_signed_in?
 
-   @rss_url = rss_url
+    @rss_url = rss_url
       end
 
       format.rss do
@@ -43,14 +43,13 @@ class AccountsController < ApplicationController
       statuses.merge!(hashtag_scope)    if tag_requested?
       statuses.merge!(only_media_scope) if media_requested?
       statuses.merge!(no_replies_scope) unless replies_requested?
-    end
+                        end
   end
 
   def default_statuses
     @account.statuses.where(visibility: [:public, :unlisted])
   end
-
-  def only_media_scope
+def only_media_scope
     Status.joins(:media_attachments).merge(@account.media_attachments.reorder(nil)).group(:id)
   end
 
@@ -58,11 +57,14 @@ class AccountsController < ApplicationController
     Status.without_replies
   end
 
-  def hashtag_scope
+                 def hashtag_scope
     tag = Tag.find_normalized(params[:tag])
 
     if tag
-      Status.tagged_with(tag.id)
+      
+            
+        
+              Status.tagged_with(tag.id)
     else
       Status.none
     end
